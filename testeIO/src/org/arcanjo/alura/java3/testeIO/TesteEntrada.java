@@ -1,15 +1,16 @@
 package org.arcanjo.alura.java3.testeIO;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Exercicio1 {
+public class TesteEntrada {
 
 	public static void main(String[] args) throws IOException {
 			
-		InputStream is = System.in; //new FileInputStream("arquivo.txt");
+		InputStream is = new FileInputStream("arquivo.txt"); //System.in; 
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 		
@@ -22,6 +23,8 @@ public class Exercicio1 {
 			linha = br.readLine();
 			
 		}
+		
+		br.close();
 		
 	}
 
