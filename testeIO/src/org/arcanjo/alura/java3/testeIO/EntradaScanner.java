@@ -1,12 +1,11 @@
 package org.arcanjo.alura.java3.testeIO;
 
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class EntradaScanner {
@@ -17,19 +16,16 @@ public class EntradaScanner {
 		Scanner entrada = new Scanner(is);
 		
         OutputStream os = new FileOutputStream("saida.txt");
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
+        PrintStream saida = new PrintStream(os);
 		
 		while (entrada.hasNextLine()){
 			
-			String linha = entrada.nextLine();
-			bw.write(linha);
-			bw.newLine();
+			saida.println(entrada.nextLine());
 			
 		}
 		
 		entrada.close();
-		bw.close();
+		saida.close();
 	}
 
 }
